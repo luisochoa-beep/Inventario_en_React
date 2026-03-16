@@ -37,3 +37,7 @@ Dentro de /servicios/src se sigue una estructura modular:
 
 authService.js---
 este se encarga de: Gestion de sesion, maneja las peticiones de Login y Logout hacia la API. Tambien almacena  y recupera el token de acceso
+
+------------------------acceso----
+El sistema implementa un esquema de autenticación mas privada:tiene acceso restringido,  Solo pueden ingresar usuarios que ya 
+existan previamente en la tabla 'usuarios' de la BD.
