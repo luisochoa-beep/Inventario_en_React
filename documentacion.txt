@@ -1,0 +1,39 @@
+Esta aplicación permite gestionar el inventario de una tienda de 
+electrónicos, controlando productos y proveedores.
+
+---info. general--
+
+ESTRUCTURA DEL PROYECTO:
+ /API        --- > Servidor y rutas de la base de datos.
+/servicios  -> Interfaz de usuario y componentes de React.
+
+----base de datos----
+PostgreSQL
+
+Tablas Principales:
+1. Proveedores: Almacena la información de contacto de las empresas.
+2. Productos: Catálogo de artículos con precio, existencia y 
+   relación (FK) hacia el proveedor que es.
+Relación: 
+Un proveedor puede surtir muchos productos (1:N)
+
+--tailwin.confg----------
+Se configuraron las rutas de 'content' de forma explícita en la carpeta /servicios para que el compilador de Tailwind 
+pudiera detectar las clases CSS dentro de la estructurA del proyecto. 
+
+Esto garantiza que:
+El diseño se cargue correctamente en desarrollo y producción.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Dentro de /servicios/src se sigue una estructura modular:
+
+- /components: Piezas reutilizables (botones, tablas).
+- /pages: Pantallas principales de la aplicación.
+- /routes: Definición de rutas y navegación del sistema.
+- /services: Lógica de conexión con la API (peticiones HTTP).
+
+-----------------------------------------------------------------
+
+authService.js---
+este se encarga de: Gestion de sesion, maneja las peticiones de Login y Logout hacia la API. Tambien almacena  y recupera el token de acceso
