@@ -17,7 +17,8 @@ const CRUD = ({ columnHeaders, getItems, createItem, deleteItem, title, renderFo
   const fetchItems = async () => {
     try {
       const data = await getItems();
-      setItems(data);
+      const list = Array.isArray(data) ? data : (Array.isArray(data?.data) ? data.data : []);
+      setItems(list);
     } catch (error) {
       setAlert({ type: 'error', message: 'Error al obtener datos.' });
     }
