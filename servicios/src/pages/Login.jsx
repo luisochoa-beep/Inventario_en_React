@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { login } from '../services/authService';
 import Alerta from '../components/Alerta';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+const navigate = useNavigate();
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ const data = await login(username, password);
 localStorage.setItem("token", data.token);
 
 alert("Bienvenido: " + data.user);
-window.location.href = "/productos"; 
+navigate("/productos");
 } catch (err) {
 setError("Usuario o contraseña incorrectos");
 }};
