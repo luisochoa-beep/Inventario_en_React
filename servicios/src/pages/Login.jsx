@@ -13,6 +13,9 @@ const handleLogin = async (e) => {
 e.preventDefault();
 try {
 const data = await login(username, password);
+
+localStorage.setItem("token", data.token);
+
 alert("Bienvenido: " + data.user);
 window.location.href = "/productos"; 
 } catch (err) {
@@ -38,5 +41,4 @@ return (
  </div>
  </div>
 );};
-
 export default Login;
