@@ -17,7 +17,7 @@ const data = await login(username, password);
 localStorage.setItem("token", data.token);
 
 alert("Bienvenido: " + data.user);
-window.location.href = "/productos"; 
+navegate("/productos", { replace: true });
 } catch (err) {
 setError("Usuario o contraseña incorrectos");
 }};
