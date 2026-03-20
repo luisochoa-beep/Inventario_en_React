@@ -1,7 +1,7 @@
 const API_URL = "https://inventario-en-react.onrender.com/api";
 
 export const fetchData = async (endpoint, options = {}) => {
-  const response = await fetch(${API_URL}${endpoint}, {
+  const response = await fetch(`${API_URL}${endpoint}`, {
     method: options.method || 'GET',
     headers: {
       "Content-Type": "application/json",
