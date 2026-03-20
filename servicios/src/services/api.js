@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://inventario-en-react.onrender.com/api";
 
 export const fetchData = async (endpoint, options = {}) => {
 const response = await fetch(`${API_URL}${endpoint}`, {
