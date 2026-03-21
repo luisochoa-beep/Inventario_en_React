@@ -9,6 +9,12 @@ method: "POST",
 body: JSON.stringify(proveedor),
 });};
 
+export const actualizarProveedor = async (id, proveedor) => {
+return await fetchData(`/proveedores/${id}`, {
+method: "PUT",
+body: JSON.stringify(proveedor),
+});};
+
 export const eliminarProveedor = async (id) => {
 return await fetchData(`/proveedores/${id}`, {
 method: "DELETE",
