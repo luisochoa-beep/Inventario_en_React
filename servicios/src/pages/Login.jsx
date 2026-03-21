@@ -4,7 +4,7 @@ import Alerta from '../components/Alerta';
 import { useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
 const navigate = useNavigate();
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
@@ -17,6 +17,10 @@ try {
 const data = await login(username, password);
 
 localStorage.setItem("token", data.token);
+
+if (setIsAuthenticated) {
+  setIsAuthenticated(true);
+}
 
 alert("Bienvenido: " + data.user);
 navigate("/productos");
