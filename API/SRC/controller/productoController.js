@@ -25,6 +25,23 @@ exports.crear = async (req, res, next) => {
   }
 };
 
+exports.actualizar = async (req, res, next) => {
+  try {
+    console.log('[PUT] /api/productos/:id - ID:', req.params.id, 'Data:', req.body);
+    if (!req.params.id) {
+      return res.status(400).json({ error: 'ID requerido' });
+    }
+    if (!req.body || Object.keys(req.body).length === 0) {
+      return res.status(400).json({ error: 'Body vacío' });
+    }
+    const actualizado = await Producto.update(req.params.id, req.body);
+    res.json({ success: true, data: actualizado });
+  } catch (error) {
+    console.error('[ERROR PUT /api/productos]:', error.message);
+    next(error);
+  }
+};
+
 exports.eliminar = async (req, res, next) => {
   try {
     console.log('[DELETE] /api/productos/:id - ID:', req.params.id);

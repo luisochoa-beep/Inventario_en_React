@@ -13,6 +13,12 @@ const res = await pool.query(
 
 
 },
+update: async (id, d) => {
+const res = await pool.query(
+'UPDATE proveedores SET nombre_empresa=$1, contacto_nombre=$2, telefono=$3, email=$4 WHERE id=$5 RETURNING *',
+[d.nombre_empresa, d.contacto_nombre, d.telefono, d.email, id]);
+return res.rows[0];
+},
 delete: async (id) => {
 await pool.query('DELETE FROM proveedores WHERE id = $1', [id]);
 return { mensaje: "Proveedor eliminado" };}

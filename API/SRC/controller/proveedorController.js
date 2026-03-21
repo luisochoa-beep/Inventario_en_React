@@ -25,6 +25,23 @@ exports.crear = async (req, res, next) => {
   }
 };
 
+exports.actualizar = async (req, res, next) => {
+  try {
+    console.log('[PUT] /api/proveedores/:id - ID:', req.params.id, 'Data:', req.body);
+    if (!req.params.id) {
+      return res.status(400).json({ error: 'ID requerido' });
+    }
+    if (!req.body || Object.keys(req.body).length === 0) {
+      return res.status(400).json({ error: 'Body vacío' });
+    }
+    const actualizado = await Proveedor.update(req.params.id, req.body);
+    res.json({ success: true, data: actualizado });
+  } catch (error) {
+    console.error('[ERROR PUT /api/proveedores]:', error.message);
+    next(error);
+  }
+};
+
 exports.eliminar = async (req, res, next) => {
   try {
     console.log('[DELETE] /api/proveedores/:id - ID:', req.params.id);
